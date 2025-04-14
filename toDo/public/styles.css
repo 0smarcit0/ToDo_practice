@@ -1,3 +1,10 @@
+@font-face{
+    font-family: 'Noto Sans';
+    src:url(fonts/Noto_Sans/static/NotoSans-Regular.ttf);
+    font-weight: 100;
+    font-style: normal;
+}
+
 body{
     height: 100vh;
     padding: 0%;
@@ -10,6 +17,7 @@ body{
 #info_sec{
     border: 0.4rem solid black;
     margin: 0;
+    margin-bottom: 2rem;
     padding: 0.1rem;
     display: flex;
     align-items: center;
@@ -41,14 +49,29 @@ nav{
 #entrada{
     display: flex;
 }
-#inp_tarea{
+.inp_tarea{
     border: 0.1rem black solid;
+    background-color: #5ac0ea;
     margin: 0;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
     padding: 0.2rem;
     margin-right: 0;
+    position: relative;
 }
+
+
+.inp_tarea:hover{
+    transition: 500ms ease-out;
+    background-color: #fff;
+}
+.inp_tarea:focus-visible{
+    outline-offset: 0;
+    outline-width: 0;
+    background-color: #fff;
+    
+}
+
 
 #ag{
     margin-left: 0;
@@ -66,7 +89,9 @@ nav{
     margin-left: 0;
 }
 button{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Noto Sans';
+    font-weight: 100;
+    font-style: normal;
     margin-left: 0.3rem;
     color: antiquewhite;
 }

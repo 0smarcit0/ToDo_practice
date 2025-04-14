@@ -1,5 +1,5 @@
 //se toman los elementos html
-const entrada = document.querySelector("#inp_tarea") as HTMLInputElement;
+const entrada = document.querySelector(".inp_tarea") as HTMLInputElement;
 const boton = document.querySelector("#ag") as HTMLButtonElement;
 const lista = document.querySelector("#lista") as HTMLUListElement;
 //id de las tareas
@@ -7,7 +7,12 @@ let id = 0;
 
 let time:TimerHandler;
 
+entrada.addEventListener("mouseleave",()=>{
+    entrada.style.transition = "500ms"
+    let a = document.styleSheets;
+    let b = a.item(0)
 
+});
 //funcion para agregar el evento al boton que elimina la tarea de la lista
 let agregar_event = (b:HTMLButtonElement)=>{
     b.addEventListener("click",(e:Event)=>{
@@ -21,8 +26,6 @@ let agregar_event = (b:HTMLButtonElement)=>{
         },400);
 
         
-       
-        
         
     });
 
@@ -31,22 +34,29 @@ let agregar_event = (b:HTMLButtonElement)=>{
 //funcion para agregar el evento al boton agregar, para agregar un nuevo evento a la lista
 boton.addEventListener("click",(e:Event)=>{
     e.preventDefault();
-    let hijo = document.createElement("li");
-    let b1 = document.createElement("button");
-    let txt = document.createElement("p");
+    if(entrada.value===""){
+        alert("Debes ingresar la tarea, no puedes agregar una tarea vacia!");
 
-    b1.className = "but_eliminar"
-    hijo.className = "li_tarea"
-    b1.id=String(id);
+    }else{
+        let hijo = document.createElement("li");
+        let b1 = document.createElement("button");
+        let txt = document.createElement("p");
 
-    hijo.id = String(id);
-    id+=1
-    agregar_event(b1);
+        b1.className = "but_eliminar"
+        hijo.className = "li_tarea"
+        b1.id=String(id);
+
+        hijo.id = String(id);
+        id+=1
+        agregar_event(b1);
     
-    b1.innerText="Eliminar";
+        b1.innerText="Eliminar";
     
-    txt.innerText = entrada.value;
-    lista.appendChild(hijo);
-    hijo.appendChild(txt);
-    hijo.appendChild(b1);
+        txt.innerText = entrada.value;
+        lista.appendChild(hijo);
+        hijo.appendChild(txt);
+        hijo.appendChild(b1);
+
+    }
+    
 });
